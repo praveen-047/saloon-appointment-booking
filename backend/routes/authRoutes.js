@@ -11,7 +11,6 @@ const db = await connectDb();
 router.post("/register", async (req, res) => { 
   try {
     const { username, email, mobile, password } = req.body;
-    console.log(username,email,mobile,password);
     
 
     if (!username || !email || !mobile || !password) {
@@ -56,7 +55,6 @@ router.post("/login", async (req, res) => {
       return res.status(400).json({ msg: "User not found" });
     }
     const user = rows[0];
-    console.log(user)
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {

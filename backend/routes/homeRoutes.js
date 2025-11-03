@@ -9,7 +9,6 @@ const db = await connectDB();
 router.get('/home',auth, async (req,res)=>{
     try{
         const {username,email} = req.user;
-        console.log(username,email);
         
 
         const [shopsList] = await db.execute(`select * from salons`)
