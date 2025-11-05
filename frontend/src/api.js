@@ -63,3 +63,23 @@ export async function shopList(id){
     return data
 
 }
+
+
+export async function profile(){
+    const url = `${api_url}/route/bookings`
+
+    const token = Cookies.get("jwt_token"); 
+
+    const options = {
+        method:"GET",
+        headers:{
+            "Content-Type":"application/json",
+            Authorization: `Bearer ${token}`
+        },
+    }
+
+    const res = await fetch(url,options)
+    const data = await res.json()
+    return data
+
+}

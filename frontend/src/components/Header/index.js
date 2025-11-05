@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { SearchContext } from "../../context/SearchContext";
 import Cookies from "js-cookie";
+import {Link} from "react-router-dom"
 import { jwtDecode } from "jwt-decode";
 import { FaUserCircle } from "react-icons/fa";
 import "./index.css";
@@ -27,6 +28,7 @@ export default function Header() {
   return (
     <header className="navbar">
       {/* Left: Logo */}
+      <Link to='/'>
       <div className="navbar-left">
         <img
           src="https://tinyurl.com/443hwhjm"
@@ -34,6 +36,7 @@ export default function Header() {
           className="navbar-logo"
         />
       </div>
+      </Link>
 
       {/* Center: Search + Location */}
       <div className="navbar-center">
@@ -53,12 +56,14 @@ export default function Header() {
       </div>
 
       {/* Right: Profile */}
+      <Link to='/profile'>
       <div className="navbar-right">
         <FaUserCircle size={28} />
         <span className="navbar-user">
           {username ? username : "Guest"}
         </span>
       </div>
+      </Link>
     </header>
   );
 }
