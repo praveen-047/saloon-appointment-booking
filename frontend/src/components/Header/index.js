@@ -1,49 +1,64 @@
-import { useContext,useState, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { SearchContext } from "../../context/SearchContext";
-import Cookies from 'js-cookie'
-import {jwtDecode} from 'jwt-decode'
+import Cookies from "js-cookie";
+import { jwtDecode } from "jwt-decode";
+import { FaUserCircle } from "react-icons/fa";
+import "./index.css";
 
-import { CgProfile } from "react-icons/cg";
+export default function Header() {
+  const [username, setUsername] = useState("");
+  const { setSearchTerm, setLocation } = useContext(SearchContext);
 
-import './index.css'
-function Header() {
+  useEffect(() => {
+    try {
+      const token = Cookies.get("jwt_token");
+      if (!token) return;
+      const payload = jwtDecode(token);
+      setUsername(payload.username);
+    } catch (error) {
+      console.log("Invalid token:", error);
+      setUsername("");
+    }
+  }, []);
 
-    const[username,setUsername] = useState("");
+  const handleSearch = (e) => setSearchTerm(e.target.value);
+  const handleLocation = (e) => setLocation(e.target.value);
 
-    useEffect(()=>{
-        try{
-            const token = Cookies.get("jwt_token")
-            if (!token) return;
+  return (
+    <header className="navbar">
+      {/* Left: Logo */}
+      <div className="navbar-left">
+        <img
+          src="https://tinyurl.com/443hwhjm"
+          alt="Salon Logo"
+          className="navbar-logo"
+        />
+      </div>
 
-            const payload = jwtDecode(token)
+      {/* Center: Search + Location */}
+      <div className="navbar-center">
+        <input
+          type="text"
+          placeholder="Search your saloon"
+          className="navbar-search"
+          onChange={handleSearch}
+        />
+        <select className="navbar-location" onChange={handleLocation}>
+          <option value="">Select Location</option>
+          <option value="BTM Layout">BTM Layout</option>
+          <option value="Rajajinagar">Rajajinagar</option>
+          <option value="Bommnahalli">Bommnahalli</option>
+          <option value="JP Nagar">JP Nagar</option>
+        </select>
+      </div>
 
-            setUsername(payload.username)
-        }catch(error){
-            console.log("invalid token",error)
-            setUsername('')
-        }
-    },[])
-
-    const{setSearchTerm,setLocation} = useContext(SearchContext);
-
-    const handleSearch = (e)=>setSearchTerm(e.target.value)
-    
-
-    return (
-        <nav className="navbar">
-            <img className="nav-logo" src='https://tinyurl.com/443hwhjm' alt='logo'/>
-            <input type='search' placeholder="Search your saloon" onChange={handleSearch}/>
-            <select >
-                <option value="">Select Location</option>
-                <option value='BTM layout'>BTM layout</option>
-                <option value='Rajajinagar'>Rajajinagar</option>
-                <option value='Bommnahalli'>Bommnahalli</option>
-                <option value='JP nagar'>JP nagar</option>
-            </select>
-            <p>{username}</p>
-            <CgProfile />
-        </nav>
-    );
+      {/* Right: Profile */}
+      <div className="navbar-right">
+        <FaUserCircle size={28} />
+        <span className="navbar-user">
+          {username ? username : "Guest"}
+        </span>
+      </div>
+    </header>
+  );
 }
-
-export default Header;
