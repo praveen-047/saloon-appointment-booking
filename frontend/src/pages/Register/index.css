@@ -1,31 +1,103 @@
+/* Background layout */
 #forms {
   height: 100vh;
   width: 100vw;
-  background-color: #4b70f5;
+  background-color: #a850ff;
+   background-image: linear-gradient(135deg, #a850ff 0%, #a850ff 100%);
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   color: white;
-}
-.form-elements {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  border-radius: 7px;
-  outline: none;
-  border: 0;
-  padding: 8px;
-  margin-bottom: 10px;
-  width: 100%;
-}
-.innerdiv {
-  margin: 5px;
+  font-family: "Poppins", sans-serif;
 }
 
-.outerdiv {
-  padding-top: 20px;
+/* Card */
+.register-card {
+  background-color: #a850ff;
+  border-radius: 20px;
+  width: 380px;
+  padding: 40px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
+
+/* Title */
 .heading {
-  padding-top: 20px;
   text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+}
+
+/* Inputs */
+.form-elements {
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  outline: none;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.innerdiv label {
+  font-size: 0.9rem;
+}
+
+/* Buttons */
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.btn-signup,
+.btn-cancel {
+  background-color: #5ac8fa;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 25px;
+  color: #000;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn-signup:hover {
+  background-color: #34b7f1;
+}
+
+.btn-cancel:hover {
+  background-color: #f28b82;
+  color: #fff;
+}
+
+/* "Already have an account?" text */
+.login-link {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+.login-link span {
+  color: #5ac8fa;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* Error message */
+.error {
+  color: #ffbaba;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .register-card {
+    width: 90%;
+    padding: 30px 25px;
+  }
 }

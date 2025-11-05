@@ -1,10 +1,192 @@
-.shop-container{
-    width: 100vw;
-    display: flex;
-    justify-content: center;
+/* Page background */
+.shop-container {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #ededed;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 40px;
+  font-family: "Poppins", sans-serif;
 }
-.shop-container-1{
-    background-color: #EEEEEE;
-    min-width: 75%;
-    min-height: 100vh;
+
+/* Center white card */
+.shop-container-1 {
+  width: 85%;
+  max-width: 1100px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  padding: 40px 50px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 60px;
+}
+
+/* ---------- LEFT SIDE: SALON LOGO ---------- */
+.shop-card-header {
+  flex: 0 0 300px; /* fixed width for logo area */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.shop-card-header img {
+  width: 280px;
+  height: 280px;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+.shop-card-header h1 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #a850ff;
+  text-align: center;
+}
+
+/* ---------- RIGHT SIDE: DETAILS + SERVICES ---------- */
+.shop-card-services {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.shop-card-services h1 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+/* Services list */
+.shop-card-services ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.shop-card-services li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.shop-card-services p {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Date + Time inputs */
+.shop-card-services input[type="date"],
+.shop-card-services input[type="time"] {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  color: #333;
+  outline: none;
+  margin-right: 10px;
+  margin-bottom: 15px;
+  width: 30%;            /* ✅ makes it auto-sized */
+  min-width: 110px;       /* ✅ ensures it doesn’t shrink too small */
+  flex-shrink: 0;         /* ✅ prevents squeezing on narrow screens */
+}
+
+
+/* Book button */
+.shop-card-services button {
+  background-color: #a850ff;
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s ease;
+  width: fit-content;
+}
+
+.shop-card-services button:hover {
+  background-color: #933eff;
+}
+
+/* ---------- GALLERY SECTION ---------- */
+.gallery-section {
+  width: 85%;
+  max-width: 1100px;
+  margin-top: 40px;
+  background-color: transparent;
+}
+
+.gallery-section h2 {
+  font-size: 1.3rem;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.gallery-grid div {
+  background-color: #d9d9d9;
+  height: 150px;
+  border-radius: 10px;
+}
+
+/* ---------- RESPONSIVE DESIGN ---------- */
+@media (max-width: 992px) {
+  .shop-container-1 {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 30px;
+  }
+
+  .shop-card-header {
+    flex: none;
+  }
+
+  .shop-card-header img {
+    width: 220px;
+    height: 220px;
+  }
+
+  .shop-card-services {
+    align-items: center;
+    text-align: center;
+  }
+
+  .shop-card-services button {
+    align-self: center;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .shop-container-1 {
+    width: 95%;
+    padding: 25px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
 }
