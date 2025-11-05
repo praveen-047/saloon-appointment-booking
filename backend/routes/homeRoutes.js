@@ -44,6 +44,41 @@ router.get("/saloon/:salon_id", auth, async (req, res) => {
   }
 });
 
+
+
+
+
+router.post("/appointment", auth, async (req, res) => {
+  try {
+    const { user_id } = req.user;
+    const { salon_id, service_ids, appointment_date, appointment_time, status } = req.body;
+
+    if (!salon_id || !service_ids || !appointment_date || !appointment_time) {
+      return res.status(400).json({ msg: "Missing required fields" });
+    }
+
+    // For multiple services, insert multiple rows
+    for (const service_id of service_ids) {
+      await db.execute(
+        `INSERT INTO appointments (user_id, salon_id, service_id, appointment_date, appointment_time, status)
+         VALUES (?, ?, ?, ?, ?, ?)`,
+        [user_id, salon_id, service_id, appointment_date, appointment_time, status || "confirmed"]
+      );
+    }
+
+    res.status(201).json({ msg: "Appointment(s) booked successfully!" });
+  } catch (error) {
+    console.error("Error booking appointment:", error);
+    res.status(500).json({ msg: "Server error while booking appointment" });
+  }
+});
+
+
+
+
+
+
+
 router.get("/bookings", auth, async (req, res) => {
   try {
     const { user_id, username, email } = req.user;

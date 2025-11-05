@@ -83,3 +83,20 @@ export async function profile(){
     return data
 
 }
+
+
+
+export async function bookAppointment(data, token) {
+  const url = `${api_url}/route/appointment`;
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(data),
+  };
+
+  const res = await fetch(url, options);
+  return await res.json();
+}

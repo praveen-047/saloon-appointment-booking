@@ -1,28 +1,69 @@
 import { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import "./index.css";
-import { useParams } from "react-router-dom";
-import { shopList } from "../../api";
+import { useNavigate, useParams } from "react-router-dom";
+import { shopList,bookAppointment } from "../../api";
+import { jwtDecode } from "jwt-decode";
+import Cookies from 'js-cookie'
 
 export default function Shops() {
+
+  const navigate =useNavigate();
+
+
   const { id } = useParams();
 
   const [shopData, setShopData] = useState([]);
   const [salonInfo,setSalonInfo] = useState({});
 
+  const[userId,setUserId] = useState("");
+  const[selectedServices,setSelectedServices] = useState([]);
+  const[date,setDate] = useState("")
+  const[time,setTime] = useState("")
+
   useEffect(() => {
     const fetchData = async () => {
       const data = await shopList(id);
-      console.log(data.salonData);
       if (data && data.salonData.length > 0) {
+        const payload = jwtDecode(Cookies.get("jwt_token"))
+        setUserId(payload.user_id)
         setShopData(data.salonData);
 
-        const { salon_name, logo, address } = data.salonData[0];
-        setSalonInfo({ salon_name, logo, address });
+        const { salon_id,salon_name, logo, address } = data.salonData[0];
+        setSalonInfo({ salon_id,salon_name, logo, address });
       }
     };
     fetchData();
   }, [id]);
+
+
+  const handleServiceSelect = (serviceId)=>{
+    setSelectedServices((prev)=>
+      prev.includes(serviceId) 
+    ? prev.filter((id)=> id!==serviceId)
+    :[...prev,serviceId]
+    )
+  }
+
+  const handleBooking = async()=>{
+    if(selectedServices.length===0 || !date || !time){
+      alert("select service,date,time")
+      return;
+    }
+    const bookingData = {
+      user_id:userId,
+      salon_id:salonInfo.salon_id,
+      service_ids:selectedServices,
+      appointment_date:date,
+      appointment_time:time,
+      status:"confirmed"
+    }
+    const data = await bookAppointment(bookingData,Cookies.get("jwt_token"));
+    alert("Appointment booked successfully")
+    navigate("/")
+  }
+
+
 
   return (
     <>
@@ -37,16 +78,17 @@ export default function Shops() {
                 <h1>Our Services</h1>
                 <ul>
                     {shopData.map((services)=>(
-                        <>
-                            <li>{services.name}</li>
-                            <p>{services.price}</p>
-                            <p>Rs.{services.duration_minutes}</p>
-                        </>
+                        <li key={services.service_id}>
+                            <p>{services.name}</p>
+                            <p>Rs{services.price}</p>
+                            <p>{services.duration_minutes}min</p>
+                            <input type="checkbox" checked={selectedServices.includes(services.service_id)} onChange={()=>{handleServiceSelect(services.service_id)}}/>
+                        </li>
                     ))}
                 </ul>
-                <input type='date'/>
-                <input type='time'/>
-                <button type='button'>Book slot</button>
+                <input type='date' value={date} onChange={(e)=>setDate(e.target.value)}/>
+                <input type='time' value={time} onChange={(e)=>setTime(e.target.value)}/>
+                <button type='button' onClick={handleBooking}>Book slot</button>
             </div>
         </div>
       </div>
