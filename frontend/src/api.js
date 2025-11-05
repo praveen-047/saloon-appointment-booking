@@ -30,7 +30,7 @@ export async function register(user){
 export async function home(){
     const url = `${api_url}/route/home`
 
-    const token = Cookies.get("jwt_token")
+    const token = Cookies.get("jwt_token"); 
 
     const options = {
         method:"GET",
@@ -43,4 +43,23 @@ export async function home(){
     const res = await fetch(url,options)
     const data = await res.json()
     return data
+}
+
+export async function shopList(id){
+    const url = `${api_url}/route/saloon/${id}`
+
+    const token = Cookies.get("jwt_token"); 
+
+    const options = {
+        method:"GET",
+        headers:{
+            "Content-Type":"application/json",
+            Authorization: `Bearer ${token}`
+        },
+    }
+
+    const res = await fetch(url,options)
+    const data = await res.json()
+    return data
+
 }

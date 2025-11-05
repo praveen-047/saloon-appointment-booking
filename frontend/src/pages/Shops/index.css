@@ -1,0 +1,10 @@
+.shop-container{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+.shop-container-1{
+    background-color: #EEEEEE;
+    min-width: 75%;
+    min-height: 100vh;
+}
