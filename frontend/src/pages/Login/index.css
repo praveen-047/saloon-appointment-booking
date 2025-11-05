@@ -1,0 +1,108 @@
+/* Full background */
+.login-page {
+  background-color: #a850ff; /* purple gradient tone */
+  background-image: linear-gradient(135deg, #a850ff 0%, #a850ff 100%);
+  opacity: 0.8;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Card container */
+.login-card {
+  background-color:#a850ff;;
+  padding: 40px 50px;
+  border-radius: 20px;
+  width: 360px;
+  text-align: center;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.25);
+  color: white;
+}
+
+.login-card h1 {
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+}
+
+/* Inputs and labels */
+.login-card label {
+  display: block;
+  text-align: left;
+  font-size: 0.9rem;
+  margin: 10px 0 5px 5px;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+}
+
+/* Buttons */
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.btn-login,
+.btn-cancel {
+  background-color: #5ac8fa;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  color: #000;
+  transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+  background-color: #34b7f1;
+}
+
+.btn-cancel:hover {
+  background-color: #f28b82;
+  color: white;
+}
+
+/* Texts */
+.forgot-text {
+  text-align: right;
+  font-size: 0.8rem;
+  color: #e0e0e0;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.signup-text {
+  margin-top: 15px;
+  font-size: 0.85rem;
+}
+
+.signup-text span {
+  color: #5ac8fa;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.error {
+  color: #ffbaba;
+  margin-top: 8px;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .login-card {
+    width: 90%;
+    padding: 30px 25px;
+  }
+}
