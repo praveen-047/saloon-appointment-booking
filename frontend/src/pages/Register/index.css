@@ -2,8 +2,6 @@
 #forms {
   height: 100vh;
   width: 100vw;
-  background-color: #a850ff;
-   background-image: linear-gradient(135deg, #a850ff 0%, #a850ff 100%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,19 +10,19 @@
 }
 
 /* Card */
-.register-card {
-  background-color: #a850ff;
+.form-card {
+  background-color: #333333a1;
+  padding: 20px;
   border-radius: 20px;
-  width: 380px;
-  padding: 40px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  min-width: 350px;
 }
 
 /* Title */
 .heading {
   text-align: center;
-  font-size: 1.8rem;
-  margin-bottom: 25px;
+  font-size: 25px;
+  margin-bottom: 10px;
+  color: #5ac8fa;
 }
 
 /* Inputs */
@@ -32,51 +30,40 @@
   display: block;
   width: 100%;
   border: none;
-  border-radius: 10px;
-  padding: 10px 12px;
-  margin-top: 5px;
-  margin-bottom: 15px;
+  border-radius: 6px;
+  padding: 5px;
+  margin-bottom: 10px;
   outline: none;
-  font-size: 0.95rem;
-  color: #333;
+  font-size: 15px;
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.147);
 }
 
 .innerdiv label {
-  font-size: 0.9rem;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
 }
 
 /* Buttons */
-.btn-group {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 15px;
-}
-
-.btn-signup,
-.btn-cancel {
+.register-btn{
   background-color: #5ac8fa;
-  border: none;
-  border-radius: 20px;
-  padding: 10px 25px;
-  color: #000;
+  border: 0px;
+  padding:9px 20px;
+  color: white;
+  font-size: 17px;
   font-weight: 500;
-  cursor: pointer;
-  transition: 0.3s ease;
+  border-radius: 10px;
+  margin-top: 10px;
 }
 
-.btn-signup:hover {
+.register-btn:hover {
   background-color: #34b7f1;
-}
-
-.btn-cancel:hover {
-  background-color: #f28b82;
-  color: #fff;
 }
 
 /* "Already have an account?" text */
 .login-link {
-  text-align: center;
+  text-align: left;
   font-size: 0.9rem;
   margin-top: 5px;
 }
@@ -85,6 +72,10 @@
   color: #5ac8fa;
   cursor: pointer;
   font-weight: 500;
+}
+
+.login-link span:hover {
+  text-decoration: underline;
 }
 
 /* Error message */

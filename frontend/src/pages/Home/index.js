@@ -26,7 +26,6 @@ export default function Home() {
       <Header />
       <div className="home-container">
         <div className="home-container-1">
-          <h1>Saloons</h1>
           {console.log(saloonsData)}
           <div className="shops-list">
             {saloonsData.map((shop) => (

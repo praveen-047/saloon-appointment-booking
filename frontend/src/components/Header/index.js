@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { SearchContext } from "../../context/SearchContext";
 import Cookies from "js-cookie";
 import {Link} from "react-router-dom"
@@ -27,18 +27,10 @@ export default function Header() {
 
   return (
     <header className="navbar">
-      {/* Left: Logo */}
-      <Link to='/'>
-      <div className="navbar-left">
-        <img
-          src="https://tinyurl.com/443hwhjm"
-          alt="Salon Logo"
-          className="navbar-logo"
-        />
-      </div>
+      <Link to='/' className="navbar-heading">
+        <h1>Saloons</h1>
       </Link>
 
-      {/* Center: Search + Location */}
       <div className="navbar-center">
         <input
           type="text"
@@ -55,8 +47,7 @@ export default function Header() {
         </select>
       </div>
 
-      {/* Right: Profile */}
-      <Link to='/profile'>
+      <Link to='/profile' className="navbar-heading">
       <div className="navbar-right">
         <FaUserCircle size={28} />
         <span className="navbar-user">

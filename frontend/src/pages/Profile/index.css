@@ -1,0 +1,71 @@
+.profile-container {
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  margin-top: 10px;
+}
+
+.profile-header-options {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+}
+
+.profile-header-options p {
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: #ffffff;
+  transition: color 0.2s ease-in-out;
+}
+
+.active{
+  text-decoration: underline;
+  color: #5ac8fa !important;
+}
+.profile-bookings-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+}
+.display-none{
+  display: none;
+}
+.profile-bookings-card div {
+  background-color: #49494959;
+  border-radius: 15px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 300px;
+  margin: 5px;
+  
+}
+
+
+
+/* --- Saloon image --- */
+.profile-bookings-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* --- Saloon name --- */
+.profile-bookings-card h1 {
+  font-size: 1.3rem;
+  color: #5ac8fa;
+  margin: 5px 0 0px;
+}
+
+/* --- Address --- */
+.profile-bookings-card p {
+  color: white;
+  font-size: 0.95rem;
+}
+

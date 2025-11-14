@@ -1,48 +1,46 @@
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background-color: #a850ff; /* Figma purple */
+  justify-content: space-evenly;
+ 
+  background-color: #3333337e;
   color: white;
-  padding: 12px 40px;
-  font-family: 'Poppins', sans-serif;
+  padding: 6px 40px;
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
-/* Logo */
-.navbar-left .navbar-logo {
-  height: 45px;
-  width: auto;
+.navbar-heading {
+  text-decoration: none;
+  color: #5ac8fa;
 }
 
-/* Center section */
 .navbar-center {
   display: flex;
   align-items: center;
-  gap: 15px;
-  flex: 1;
   justify-content: center;
 }
 
 .navbar-search {
-  padding: 10px 14px;
+  padding: 6px 14px;
   border-radius: 8px;
   border: none;
   outline: none;
-  width: 320px;
+  width: 200px;
   font-size: 0.95rem;
-  color: #333;
+  color: #e8e8e8;
+  background-color: #333333a1;
+  margin-right: 10px;
 }
 
 .navbar-location {
-  padding: 10px 14px;
+  padding: 6px 14px;
   border-radius: 8px;
   border: none;
   outline: none;
-  background-color: white;
-  color: #333;
+  background-color: #333333a1;
+  color: #e8e8e8;
   font-size: 0.95rem;
   cursor: pointer;
 }

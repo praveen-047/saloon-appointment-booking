@@ -43,7 +43,7 @@ export default function Login() {
       <div className="login-card">
         <h1>Login</h1>
         <form onSubmit={handleSubmit}>
-          <label htmlFor="email">Username</label>
+          <label htmlFor="email">Email</label>
           <input
             type="email"
             id="email"
@@ -65,13 +65,6 @@ export default function Login() {
 
           <div className="btn-group">
             <button type="submit" className="btn-login">Login</button>
-            <button
-              type="button"
-              className="btn-cancel"
-              onClick={() => navigate("/")}
-            >
-              Cancel
-            </button>
           </div>
 
           <p className="signup-text">

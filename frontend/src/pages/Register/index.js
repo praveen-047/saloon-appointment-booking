@@ -44,9 +44,9 @@ export default function Register() {
 
   return (
     <div id="forms">
-      <form onSubmit={handleRegister}>
+      <form onSubmit={handleRegister} className="form-card">
         <div className="heading">
-          <h2>SignUp</h2>
+          <h2>Register</h2>
         </div>
 
         <div className="outerdiv">
@@ -81,7 +81,7 @@ export default function Register() {
         </button>
 
         <div onClick={onClickLogin}>
-          <p>Don't have a account? register here</p>
+          <p className="login-link">Already have a account? <span>login here</span></p>
         </div>
       </form>
     </div>
