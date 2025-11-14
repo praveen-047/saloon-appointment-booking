@@ -5,10 +5,10 @@ import mysql from "mysql2/promise";
 async function connectDB() {
   try {
     const db = await mysql.createConnection({
-      host: "bzqenxovigg6j4uie136-mysql.services.clever-cloud.com",
-      user: "uzjspfcjaoaygkcu",
-      password: "x9qonekgY7oL2OsVUuGt",
-      database: "bzqenxovigg6j4uie136",
+      host: "localhost",
+      user: "root",
+      password: "tiger",
+      database: "saloon",
     });
     console.log('Database connected successfully');
     
